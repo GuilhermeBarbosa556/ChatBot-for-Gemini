@@ -17,8 +17,8 @@ body {
 }
 
 .container {
-    max-width: 1200px;
     width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     flex: 1;
@@ -104,6 +104,8 @@ h1 {
     font-size: 16px;
     outline: none;
     transition: border 0.3s;
+    min-width: 0;
+    /* Permite que o input encolha */
 }
 
 #text-input:focus {
@@ -119,6 +121,8 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    white-space: nowrap;
+    /* Evita quebra de texto */
 }
 
 #send-button:hover {
@@ -140,10 +144,10 @@ h1 {
     border-radius: 18px;
     color: #4285f4;
     font-size: 14px;
-}
-
-#image-indicator i {
-    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 .image-preview {
@@ -154,52 +158,57 @@ h1 {
     object-fit: contain;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+/* Ajustes para manter o mesmo layout em mobile */
+@media (max-width: 600px) {
     .container {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-        margin: 10px 0;
+        padding: 15px;
+        max-width: 100%;
     }
 
     #chat-box {
         padding: 15px;
     }
 
-    .message {
-        max-width: 90%;
-        padding: 10px 14px;
-        font-size: 14px;
-    }
-
     .input-container {
-        padding: 10px;
+        padding: 12px;
     }
 
-    #text-input,
+    /* Garante que os elementos não quebrem linha */
+    .input-row {
+        flex-wrap: nowrap;
+    }
+
+    /* Ajuste fino para garantir que tudo caiba */
+    #text-input {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
     #send-button {
         padding: 10px 15px;
-        font-size: 14px;
+        font-size: 15px;
     }
 
-    .input-row {
-        flex-direction: column;
-    }
-
-    #send-button {
-        width: 100%;
+    /* Truncar nome de arquivo muito longo */
+    #file-name {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
-@media (max-width: 480px) {
-    .message {
-        max-width: 95%;
+/* Ajustes para telas muito pequenas */
+@media (max-width: 400px) {
+    #file-name {
+        max-width: 150px;
     }
 
-    .image-preview {
-        max-height: 150px;
+    #text-input {
+        font-size: 14px;
+    }
+
+    #send-button {
+        font-size: 14px;
+        padding: 10px 12px;
     }
 }
