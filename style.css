@@ -105,7 +105,6 @@ h1 {
     outline: none;
     transition: border 0.3s;
     min-width: 0;
-    /* Permite que o input encolha */
 }
 
 #text-input:focus {
@@ -122,7 +121,6 @@ h1 {
     font-size: 16px;
     transition: background-color 0.3s;
     white-space: nowrap;
-    /* Evita quebra de texto */
 }
 
 #send-button:hover {
@@ -158,7 +156,6 @@ h1 {
     object-fit: contain;
 }
 
-/* Ajustes para manter o mesmo layout em mobile */
 @media (max-width: 600px) {
     .container {
         padding: 15px;
@@ -173,12 +170,10 @@ h1 {
         padding: 12px;
     }
 
-    /* Garante que os elementos não quebrem linha */
     .input-row {
         flex-wrap: nowrap;
     }
 
-    /* Ajuste fino para garantir que tudo caiba */
     #text-input {
         padding: 10px 15px;
         font-size: 15px;
@@ -189,7 +184,6 @@ h1 {
         font-size: 15px;
     }
 
-    /* Truncar nome de arquivo muito longo */
     #file-name {
         max-width: 200px;
         overflow: hidden;
@@ -197,7 +191,6 @@ h1 {
     }
 }
 
-/* Ajustes para telas muito pequenas */
 @media (max-width: 400px) {
     #file-name {
         max-width: 150px;
